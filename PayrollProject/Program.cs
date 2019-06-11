@@ -11,7 +11,9 @@ namespace PayrollProject
     {
         static void Main(string[] args)
         {
-           string TextToBeWritten=FileOperation.WriteFile(@"E:\testfile.txt");
+            // string TextToBeWritten=FileOperation.WriteFile(@"E:\testfile.txt");
+          //  string[] arr = FileOperation.ReadLines(@"E:\testfile.txt");
+           string Result = FileOperation.WriteFile(@"E:\testfile.txt");
         }
     }
 }

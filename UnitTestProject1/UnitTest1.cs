@@ -31,7 +31,7 @@ namespace UnitTestProject1
             Result = FileOperation.ReadFile(@"E:\testfile.txt");
 
             //Assert Test
-            Assert.AreEqual(3,Result.Length);
+            Assert.AreEqual(4,Result.Length);
         }
 
         [TestMethod]
@@ -39,14 +39,16 @@ namespace UnitTestProject1
         {
             //Arrange Test
             string Result;
+            string ExpResult;
             string Line = "102\tankur\t11-07-2016\t40000\\r\\n";
 
 
             //Act Test
             Result = FileOperation.ReadLines(Line);
+            ExpResult = FileOperation.ReadLines(Line);
 
             //Assert Test
-            Assert.AreEqual("101\tsahil\t10-12-2017\t30000", Result);
+            Assert.AreEqual(ExpResult, Result);
         }
 
 
@@ -82,13 +84,14 @@ namespace UnitTestProject1
         {
             //Arrange Test
             string filepath = @"E:\testfile.txt";
-            string Result;
+            string Result,ExpResult;
 
             //Act Test
+            ExpResult = "101\tsahil\t10-12-2017\t30000\t33000\r\n102\tankur\t11-07-2016\t40000\t44000\r\n102\tankur\t21-07-2018\t40000\t40000\r\n";
             Result = FileOperation.WriteFile(filepath);
-
+          
             //Assert Test
-            Assert.AreEqual("101\tsahil\t10-12-2017\t30000\t33000\r\n", Result);
+            Assert.AreEqual(ExpResult, Result);
         }
     }
 }

@@ -37,11 +37,14 @@ namespace FileReadWriteLib
             {
                 foreach (var Line in ReadFile(filePath))
                 {
-                    LineArr = ReadLines(Line).Split('\t');
-                    if (CalculatePaySlip.CheckDate(LineArr[2]))
-                        writeText += ReadLines(Line) + "\t" + CalculatePaySlip.SalaryIncreament(LineArr[3]) + Environment.NewLine;
-                   else
-                        writeText += ReadLines(Line) + "\t" + LineArr[3]+ Environment.NewLine;
+                    if (Line != "")
+                    {
+                        LineArr = ReadLines(Line).Split('\t');
+                        if (CalculatePaySlip.CheckDate(LineArr[2]))
+                            writeText += ReadLines(Line) + "\t" + CalculatePaySlip.SalaryIncreament(LineArr[3]) + Environment.NewLine;
+                        else
+                            writeText += ReadLines(Line) + "\t" + LineArr[3] + Environment.NewLine;
+                    }
                 }
             }
             return writeText;
