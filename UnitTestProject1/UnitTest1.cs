@@ -18,7 +18,7 @@ namespace UnitTestProject1
             Result = FileOperation.CheckFile(@"E:\testfile.txt");
 
             //Assert Test
-            Assert.AreEqual(true, false);
+            Assert.AreEqual(true, Result);
         }
 
         [TestMethod]
